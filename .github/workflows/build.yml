@@ -26,13 +26,11 @@ jobs:
         recipe:
           - recipe.yml
     steps:
-      - name: Build Custom Image
+   - name: Build Custom Image
         uses: blue-build/github-action@v1.10
         with:
           recipe: ${{ matrix.recipe }}
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
-          # We are putting BOTH here to force the system to see it
-          build_flags: "--no-sign"
           build_opts: "--no-sign"
