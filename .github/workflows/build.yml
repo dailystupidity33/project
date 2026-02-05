@@ -14,14 +14,19 @@ concurrency:
 
 jobs:
   bluebuild:
+   name: bluebuild
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  bluebuild:
     name: Build Custom Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
       id-token: write
-    strategy:
-      fail-fast: false
     steps:
       - name: Build Custom Image
         uses: blue-build/github-action@v1.10
