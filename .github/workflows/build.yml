@@ -22,14 +22,11 @@ jobs:
       id-token: write
     strategy:
       fail-fast: false
-      matrix:
-        recipe:
-          - recipe.yml
     steps:
-   - name: Build Custom Image
+      - name: Build Custom Image
         uses: blue-build/github-action@v1.10
         with:
-          recipe: ${{ matrix.recipe }}
+          recipe: recipe.yml
           registry_token: ${{ github.token }}
           pr_event_number: ${{ github.event.number }}
           maximize_build_space: true
