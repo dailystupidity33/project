@@ -22,7 +22,7 @@ jobs:
       id-token: write
     steps:
       - name: Build Custom Image
-        uses: blue-build/github-action@v1.10
+        uses: blue-build/github-action@v1.12
         with:
           recipe: recipe.yml
           registry_token: ${{ github.token }}
